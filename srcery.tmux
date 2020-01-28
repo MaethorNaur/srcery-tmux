@@ -29,15 +29,7 @@ __cleanup() {
 
 __load() {
     tmux source-file "$CURRENT_DIR/$SRCERY_TMUX_COLOR_THEME_FILE"
-
-    patched_font=$(tmux show-option -gqv \
-        "$SRCERY_TMUX_PATCHED_FONT_OPTION")
-
-    if [ "$patched_font" != "1" ]; then
-        tmux source-file "$CURRENT_DIR/$SRCERY_TMUX_STATUS_NO_PATCHED_FILE"
-    else
-        tmux source-file "$CURRENT_DIR/$SRCERY_TMUX_STATUS_PATCHED_FILE"
-    fi
+    tmux source-file "$CURRENT_DIR/$SRCERY_TMUX_STATUS_PATCHED_FILE"
 }
 
 __load
